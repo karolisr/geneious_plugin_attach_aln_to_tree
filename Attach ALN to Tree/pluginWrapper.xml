@@ -1,0 +1,51 @@
+<wrapperPlugin name="Attach ALN to Tree" help="" description="Attach a Geneious alignment document to the provided Newick tree." authors="Karolis Ramanauskas" version="1.0" menuLabel="Attach ALN to Tree" minimumApiVersion="4.202100" type="TreeBuilder" menuPosition="0.5">
+  <bundledExecutable platform="Linux" name="aln_to_tree.sh_Linux" />
+  <bundledExecutable platform="MacOS" name="aln_to_tree.sh_MacOS" />
+  <bundledExecutable platform="Windows" name="aln_to_tree.sh_Windows" />
+  <additionalFilesAndFolders />
+  <input>
+    <supportedAlphabets>
+      <alphabet>NUCLEOTIDE</alphabet>
+      <alphabet>PROTEIN</alphabet>
+    </supportedAlphabets>
+    <selectionSignature sequencesInAlignmentMinimum="3" sequencesInAlignmentMaximum="2147483647" alignmentSequenceType="nucleotide" nucleotideAlignmentMinimum="0" nucleotideAlignmentMaximum="0" proteinAlignmentMinimum="0" proteinAlignmentMaximum="0" nucleotideSequenceMinimum="0" nucleotideSequenceMaximum="0" proteinSequenceMinimum="0" proteinSequenceMaximum="0" />
+    <selectionSignature sequencesInAlignmentMinimum="3" sequencesInAlignmentMaximum="2147483647" alignmentSequenceType="aminoAcid" nucleotideAlignmentMinimum="0" nucleotideAlignmentMaximum="0" proteinAlignmentMinimum="0" proteinAlignmentMaximum="0" nucleotideSequenceMinimum="0" nucleotideSequenceMaximum="0" proteinSequenceMinimum="0" proteinSequenceMaximum="0" />
+    <format>fasta</format>
+    <inputOptionsValues>
+      <option name="wrap">false</option>
+      <option name="replaceSpacesInNameWithUnderscore">true</option>
+      <option name="description">false</option>
+      <option name="exportedSequenceCase">uppercase</option>
+      <option name="replaceCharsInNameWithUnderscore" />
+      <option name="exportInsertionsAndReplacementsInOppositeCase">false</option>
+      <option name="exportMissingEndAs">missingEndsAsGaps</option>
+      <option name="allGaps">gaps</option>
+    </inputOptionsValues>
+  </input>
+  <commandLine>-a input.fasta [otherOptions] output</commandLine>
+  <nucleotideSpecificOptions />
+  <proteinSpecificOptions />
+  <output filename="output" resultName="[inputNames] Tree" format="newick" importerOptions="&lt;values&gt;&#xD;&#xA;  &lt;option name=&quot;importAsUnrooted&quot;&gt;false&lt;/option&gt;&#xD;&#xA;  &lt;option name=&quot;importNodeValuesAs&quot;&gt;branchSupport&lt;/option&gt;&#xD;&#xA;  &lt;option name=&quot;internalNodeLabel&quot;&gt;Value&lt;/option&gt;&#xD;&#xA;&lt;/values&gt;" />
+  <optionAlphabets />
+  <optionPlatforms />
+  <optionSeparators />
+  <optionRowIds>
+    <option optionName="--newick" value="" />
+  </optionRowIds>
+  <optionsOrder>
+    <option optionName="--newick" />
+  </optionsOrder>
+  <options notInScrollPane="true">
+    <basePreferencesNodeName>Options.com.biomatters.iseek.plugin.wrapperplugins.WrapperPluginEditorPage3</basePreferencesNodeName>
+    <dividerNumber>1</dividerNumber>
+    <labelNumber>1</labelNumber>
+    <option type="com.biomatters.geneious.publicapi.plugin.Options$StringOption">
+      <value />
+      <defaultValue />
+      <label>Newick File Path</label>
+      <name>--newick</name>
+    </option>
+    <layouter optionName="--newick" type="com.biomatters.geneious.publicapi.plugin.Options$SingleOptionLayouter" />
+  </options>
+  <useWindowsLinuxSubsystem>true</useWindowsLinuxSubsystem>
+</wrapperPlugin>

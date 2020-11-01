@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Suppress printing of error messages
+# exec 2>/dev/null
+
+# Stop on first error
+set -o errexit
+# Set trap on ERR to be inherited by shell functions
+set -o errtrace
+
+# Trap errors
+trap 'echo Error at line: $LINENO' ERR
+
+PARAMS=""
+while (( "$#" )); do
+  case "$1" in
+    -a|--aln)
+      MY_FLAG=0
+      shift
+      ;;
+    -t|--newick)
+      MY_FLAG=0
+      shift
+      ;;
+    -*|--*=) # unsupported flags
+      echo "Error: Unsupported flag $1" >&2
+      exit 1
+      ;;
+    *) # preserve positional arguments
+      PARAMS="$PARAMS $1"
+      shift
+      ;;
+  esac
+done
+# set positional arguments in their proper place
+eval set -- "$PARAMS"
+
+cp ${2} ${3}
